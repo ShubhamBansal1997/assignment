@@ -7,8 +7,10 @@ How to get started?
 $ git clone git@github.com:ShubhamBansal1997/assignment.git
 $ cd assignment
 ```
-(Make sure docker is installed on your system)
+(Make sure docker, composer and php is installed on your system)
 ```
+$ cp .env.sample .env
+$ composer install
 $ ./vendor/bin/sail/ up
 ```
 - API backend server will be running on the `localhost:80`
@@ -16,7 +18,6 @@ $ ./vendor/bin/sail/ up
 - List all containers using ```docker ps -a```
 - Bash into container ```docker exec -it example-app_laravel.test_1 /bin/bash```
 - Run migrations and seeding ```php artisan migrate --seed```
-- Change `QUEUE_CONNECTION=database` and `MAIL_FROM_ADDRESS=any_mail_address@mail.com` in the `.env`
 - Run Queue listener ```php artisan queue:listen```
 
 Tasks
