@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateWebsiteUsersTable extends Migration
 {
@@ -14,7 +15,7 @@ class CreateWebsiteUsersTable extends Migration
     public function up()
     {
         Schema::create('website_users', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->default(DB::raw('(UUID())'));
             $table->primary('id');
             $table->uuid('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
