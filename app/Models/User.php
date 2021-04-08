@@ -10,6 +10,13 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    use Uuids;
+    /**
+     * Set autoincrement to false
+     *
+     * @var  bool
+     */
+    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -43,6 +50,6 @@ class User extends Authenticatable
 
     public function websites()
     {
-        return $this->belongsToMany(Website::class, 'website_user');
+        return $this->belongsToMany(Website::class, 'website_users', 'user_id', 'website_id');
     }
 }

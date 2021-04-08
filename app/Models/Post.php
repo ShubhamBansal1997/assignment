@@ -8,8 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    use Uuids;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['title', 'description', 'website_id'];
 
-    public function posts()
+    public function website()
     {
     	return $this->belongsTo(Website::class);
     }
