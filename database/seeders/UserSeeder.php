@@ -16,16 +16,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('users')->insert([[
         	'id' => 'affaae22-3663-48a8-8dc1-d4e76d85fa1c',
-        	'name' => Str::random(10);
+        	'name' => Str::random(10),
         	'email' => Str::random(10).'@gmail.com',
         	'password' => Hash::make('password'),
         ],[
         	'id' => 'e8455b58-8e58-49e0-880b-4ab955fb0883',
-        	'name' => Str::random(10);
+        	'name' => Str::random(10),
         	'email' => Str::random(10).'@gmail.com',
         	'password' => Hash::make('password'),
-        ]);
+        ]]);
     }
 }
